@@ -1,4 +1,4 @@
-FROM alpine AS build
+FROM alpine:3.23.2@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62 AS build
 LABEL MAINTAINER="Madhu Akula" INFO="Kubernetes Goat"
 
 WORKDIR /build
@@ -20,7 +20,7 @@ COPY home .
 RUN git clone https://github.com/madhuakula/toc-page-hugo-theme.git themes/toc-page \
     && /usr/bin/hugo
 
-FROM nginx:alpine
+FROM nginx:alpine@sha256:fd9f8ce722ab13edb2e47ebdd16b843939280457bf1567a6cd155203f9ce98d8
 LABEL MAINTAINER="Madhu Akula" INFO="Kubernetes Goat"
 
 COPY --from=build /build/public /usr/share/nginx/html

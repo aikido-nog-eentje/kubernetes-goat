@@ -12,6 +12,8 @@ spec:
       labels:
         app: build-code
     spec:
+      securityContext:
+        runAsNonRoot: true
       containers:
       - name: build-code
         image: madhuakula/k8s-goat-build-code

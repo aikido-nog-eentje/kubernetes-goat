@@ -14,6 +14,8 @@ spec:
       labels:
         app: internal-proxy
     spec:
+      securityContext:
+        runAsNonRoot: true
       containers:
       - name: internal-api
         image: madhuakula/k8s-goat-internal-api

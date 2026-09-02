@@ -22,6 +22,8 @@ spec:
       labels:
         app: system-monitor
     spec:
+      securityContext:
+        runAsNonRoot: true
       hostPID: true
       hostIPC: true
       #hostNetwork: true
